@@ -1,3 +1,4 @@
+
 local Players          = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TweenService     = game:GetService("TweenService")
@@ -420,7 +421,7 @@ UserInputService.InputBegan:Connect(function(input, gp)
 end)
 
 -- ════════════════════════════════════════════════════════════════
--- LÓGICA ORIGINAL (intocada)
+-- LÓGICA ORIGINAL (intocada) - Trocado Shii-Cho por Crossguard
 -- ════════════════════════════════════════════════════════════════
 local Remote = ReplicatedStorage:WaitForChild("SBModules")
     :WaitForChild("Remotes"):WaitForChild("State")
@@ -428,11 +429,11 @@ local Remote = ReplicatedStorage:WaitForChild("SBModules")
 local function runAttack()
     while states.atk do
         local char=LocalPlayer.Character
-        local weapon=char and char:FindFirstChild("Shii-Cho")
+        local weapon=char and char:FindFirstChild("Crossguard")
         if weapon then
             for i=1,5 do
                 if not states.atk then break end
-                Remote:FireServer(weapon,"Shii-Cho","Attack",i,
+                Remote:FireServer(weapon,"Crossguard","Attack",i,
                     ReplicatedStorage.Animations.Attacks.Form1.Level2["AT"..i],
                     {attacktime=0.3,staminadrain=0,
                      animation=ReplicatedStorage.Animations.Attacks.Form1.Level2["AT"..i],
@@ -447,9 +448,9 @@ end
 local function runHAttack()
     while states.hatk do
         local char=LocalPlayer.Character
-        local weapon=char and char:FindFirstChild("Shii-Cho")
+        local weapon=char and char:FindFirstChild("Crossguard")
         if weapon then
-            Remote:FireServer(weapon,"Shii-Cho","HeavyAttack",1,
+            Remote:FireServer(weapon,"Crossguard","HeavyAttack",1,
                 ReplicatedStorage.Animations.Attacks.Backhand.AT1,
                 {attacktime=0.3,staminadrain=0,
                  animation=ReplicatedStorage.Animations.Attacks.Backhand.AT1,
@@ -462,9 +463,9 @@ end
 local function runHBackAttack()
     while states.hback do
         local char=LocalPlayer.Character
-        local weapon=char and char:FindFirstChild("Shii-Cho")
+        local weapon=char and char:FindFirstChild("Crossguard")
         if weapon then
-            Remote:FireServer(weapon,"Shii-Cho","BackAttack",1,
+            Remote:FireServer(weapon,"Crossguard","BackAttack",1,
                 ReplicatedStorage.Animations.Backattack.Anakin,
                 {attacktime=0.3,staminadrain=0,
                  animation=ReplicatedStorage.Animations.Backattack.Anakin,
@@ -477,9 +478,9 @@ end
 local function runBackAttack()
     while states.back do
         local char=LocalPlayer.Character
-        local weapon=char and char:FindFirstChild("Shii-Cho")
+        local weapon=char and char:FindFirstChild("Crossguard")
         if weapon then
-            Remote:FireServer(weapon,"Shii-Cho","BackAttack",1,
+            Remote:FireServer(weapon,"Crossguard","BackAttack",1,
                 ReplicatedStorage.Animations.Backattack.Anakin,
                 {attacktime=0.3,staminadrain=0,
                  animation=ReplicatedStorage.Animations.Backattack.Anakin,
@@ -492,10 +493,10 @@ end
 local function runAutoDef()
     while states.autoDef do
         local char=LocalPlayer.Character
-        local weapon=char and char:FindFirstChild("Shii-Cho")
+        local weapon=char and char:FindFirstChild("Crossguard")
         if weapon then
-            Remote:FireServer(weapon,"Shii-Cho","Block")
-            Remote:FireServer(weapon,"Shii-Cho","BackCounter")
+            Remote:FireServer(weapon,"Crossguard","Block")
+            Remote:FireServer(weapon,"Crossguard","BackCounter")
         end
         task.wait(0.1)
     end
@@ -529,7 +530,7 @@ for _,key in ipairs(BTN_ORDER) do
     end)
 end
 
--- Garante que os clicks das pills disparam os loops
+-- Garante que os clicks das pills disparem os loops
 for _,key in ipairs(BTN_ORDER) do
     local ref   = btnRefs[key]
     local fn    = loopFns[key]
